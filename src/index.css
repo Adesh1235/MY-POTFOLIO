@@ -1,0 +1,570 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-ivory: #FAF8F4;
+    --bg-parchment: #F5F0E6;
+    --bg-cream: #EFE9DC;
+    --bg-beige: #F1EBE0;
+    --paper-sheet: #FFFDF9;
+    --ink-primary: #141311;
+    --ink-secondary: #4A4640;
+    --ink-muted: #6E685F;
+    --accent-brown: #74482A;
+    --accent-caramel: #8C5E3C;
+    --border-hairline: #DED6C6;
+    --border-paper: #D8CEBE;
+    --font-serif: 'DM Serif Display', 'Playfair Display', Georgia, serif;
+    --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-hand: 'Caveat', cursive;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: var(--bg-ivory);
+    color: var(--ink-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* =========================================================================
+   TYPOGRAPHY SYSTEM (EDITORIAL DM SERIF DISPLAY + MANROPE)
+   ========================================================================= */
+
+.font-serif-editorial {
+  font-family: var(--font-serif);
+  letter-spacing: -0.018em;
+}
+
+.font-sans-body {
+  font-family: var(--font-sans);
+  line-height: 1.68;
+}
+
+.font-mono-tabular {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.14em;
+}
+
+.font-handwritten {
+  font-family: var(--font-hand);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* =========================================================================
+   MATERIAL 01: EDITORIAL PAPER (Warm Ivory, Fine Grain, Matte, Soft Shadows)
+   ========================================================================= */
+
+.surface-hero {
+  background-color: #FAF8F4;
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(255, 253, 248, 0.9) 0%, transparent 52%),
+    radial-gradient(circle at 82% 28%, rgba(140, 94, 60, 0.055) 0%, transparent 48%),
+    radial-gradient(rgba(23, 20, 17, 0.02) 0.75px, transparent 0);
+  background-size: 100% 100%, 100% 100%, 18px 18px;
+}
+
+.surface-work {
+  background-color: #F6F2EA;
+  background-image:
+    linear-gradient(180deg, rgba(250, 248, 244, 0.65) 0%, rgba(245, 240, 230, 0.92) 100%),
+    radial-gradient(rgba(23, 20, 17, 0.022) 0.75px, transparent 0);
+  background-size: 100% 100%, 18px 18px;
+}
+
+.surface-about {
+  background-color: #F1ECE1;
+  background-image:
+    radial-gradient(circle at 14% 22%, rgba(255, 252, 245, 0.55) 0%, transparent 55%),
+    radial-gradient(rgba(23, 20, 17, 0.024) 0.75px, transparent 0);
+  background-size: 100% 100%, 18px 18px;
+}
+
+.surface-books {
+  background-color: #F5EFE4;
+  background-image:
+    radial-gradient(circle at 80% 18%, rgba(140, 94, 60, 0.055) 0%, transparent 50%),
+    radial-gradient(rgba(23, 20, 17, 0.022) 0.75px, transparent 0);
+  background-size: 100% 100%, 18px 18px;
+}
+
+.surface-process {
+  background-color: #EFE9DD;
+  background-image:
+    linear-gradient(135deg, rgba(255, 252, 246, 0.48) 0%, transparent 65%),
+    radial-gradient(rgba(23, 20, 17, 0.024) 0.75px, transparent 0);
+  background-size: 100% 100%, 18px 18px;
+}
+
+.surface-contact {
+  background-color: #FAF7F1;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 253, 248, 0.85) 0%, transparent 55%),
+    radial-gradient(rgba(23, 20, 17, 0.02) 0.75px, transparent 0);
+  background-size: 100% 100%, 18px 18px;
+}
+
+.paper-mount {
+  background-color: #FFFDF9;
+  border: 1px solid #DDD3C2;
+  box-shadow:
+    0 20px 44px -16px rgba(26, 21, 17, 0.13),
+    0 4px 10px -2px rgba(26, 21, 17, 0.05),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+  transition:
+    transform 380ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 380ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 280ms ease;
+}
+
+.paper-mount:hover {
+  box-shadow:
+    0 28px 54px -16px rgba(26, 21, 17, 0.17),
+    0 6px 14px -3px rgba(26, 21, 17, 0.07),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+}
+
+.paper-note-foreground {
+  background-color: #F8F2E4;
+  border: 1px solid #DFD4C0;
+  box-shadow:
+    0 14px 28px -8px rgba(26, 21, 17, 0.15),
+    0 3px 7px -1px rgba(26, 21, 17, 0.06),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.75);
+}
+
+.archival-tape {
+  background-color: rgba(212, 192, 161, 0.78);
+  border: 1px solid rgba(184, 160, 124, 0.42);
+  box-shadow: 0 2px 4px rgba(23, 20, 17, 0.06);
+}
+
+/* =========================================================================
+   MATERIAL 02: TRANSPARENT WARM LIQUID GLASS (Physical Acrylic Sheet Accent)
+   Neutral warm glass that inherits the colors behind it with 1px specular rim
+   ========================================================================= */
+
+.acrylic-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 254, 250, 0.66) 0%,
+    rgba(248, 243, 233, 0.44) 52%,
+    rgba(255, 252, 245, 0.58) 100%
+  );
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  border-top: 1px solid rgba(255, 255, 255, 0.85);
+  border-left: 1px solid rgba(255, 255, 255, 0.75);
+  border-right: 1px solid rgba(196, 184, 164, 0.45);
+  border-bottom: 1px solid rgba(180, 166, 144, 0.5);
+  box-shadow:
+    0 18px 38px -12px rgba(23, 20, 17, 0.14),
+    0 4px 10px -2px rgba(23, 20, 17, 0.05),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.92),
+    inset 0 -1px 0 0 rgba(140, 94, 60, 0.12);
+}
+
+/* Floating Glass Caption / Overlay Plate on Portfolio Images & Books */
+.acrylic-glass-caption {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 254, 251, 0.74) 0%,
+    rgba(247, 241, 230, 0.52) 55%,
+    rgba(255, 253, 248, 0.66) 100%
+  );
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  border-left: 1px solid rgba(255, 255, 255, 0.78);
+  border-right: 1px solid rgba(194, 181, 160, 0.48);
+  border-bottom: 1px solid rgba(178, 163, 140, 0.55);
+  box-shadow:
+    0 16px 34px -10px rgba(20, 17, 15, 0.18),
+    0 3px 8px -2px rgba(20, 17, 15, 0.08),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+  transition:
+    transform 340ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 340ms cubic-bezier(0.16, 1, 0.3, 1),
+    background 280ms ease;
+}
+
+/* Specular light reflection passing through glass caption on hover */
+.acrylic-glass-caption::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.65) 50%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  transition: left 620ms cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.group:hover .acrylic-glass-caption::before,
+.acrylic-glass-caption:hover::before {
+  left: 145%;
+}
+
+.group:hover .acrylic-glass-caption {
+  transform: translate(4px, -4px);
+  box-shadow:
+    0 22px 42px -10px rgba(20, 17, 15, 0.22),
+    0 5px 12px -2px rgba(20, 17, 15, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 1);
+}
+
+/* Floating Navigation Glass Bar */
+.acrylic-glass-nav {
+  background: linear-gradient(
+    135deg,
+    rgba(252, 250, 245, 0.78) 0%,
+    rgba(245, 239, 229, 0.62) 50%,
+    rgba(252, 249, 243, 0.74) 100%
+  );
+  backdrop-filter: blur(20px) saturate(155%);
+  -webkit-backdrop-filter: blur(20px) saturate(155%);
+  border-top: 1px solid rgba(255, 255, 255, 0.88);
+  border-left: 1px solid rgba(255, 255, 255, 0.75);
+  border-right: 1px solid rgba(204, 193, 175, 0.5);
+  border-bottom: 1px solid rgba(190, 178, 158, 0.58);
+  box-shadow:
+    0 14px 34px -12px rgba(23, 20, 17, 0.11),
+    0 2px 6px -1px rgba(23, 20, 17, 0.04),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.92);
+}
+
+/* =========================================================================
+   MATERIAL 03: DARK GLASS (Charcoal Transparency for ID Card Back & Accents)
+   ========================================================================= */
+
+.dark-acrylic-glass {
+  background: linear-gradient(
+    140deg,
+    rgba(30, 26, 23, 0.88) 0%,
+    rgba(19, 17, 15, 0.82) 55%,
+    rgba(28, 23, 20, 0.86) 100%
+  );
+  backdrop-filter: blur(22px) saturate(155%);
+  -webkit-backdrop-filter: blur(22px) saturate(155%);
+  border-top: 1px solid rgba(255, 250, 242, 0.24);
+  border-left: 1px solid rgba(255, 250, 242, 0.18);
+  border-right: 1px solid rgba(140, 94, 60, 0.28);
+  border-bottom: 1px solid rgba(140, 94, 60, 0.34);
+  box-shadow:
+    0 26px 56px -14px rgba(15, 13, 11, 0.42),
+    0 6px 16px -3px rgba(15, 13, 11, 0.22),
+    inset 0 1px 0 0 rgba(255, 252, 245, 0.22);
+  color: #FAF8F4;
+}
+
+/* =========================================================================
+   SECTION 5: LIQUID GLASS & EDITORIAL INTERACTION BUTTONS
+   ========================================================================= */
+
+/* Transparent Liquid Glass Button */
+.btn-glass-interactive {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 254, 250, 0.72) 0%,
+    rgba(244, 238, 227, 0.48) 100%
+  );
+  backdrop-filter: blur(14px) saturate(145%);
+  -webkit-backdrop-filter: blur(14px) saturate(145%);
+  color: #141311;
+  border: 1px solid rgba(182, 168, 146, 0.68);
+  box-shadow:
+    0 8px 22px -8px rgba(23, 20, 17, 0.14),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.92);
+  transition:
+    transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    background 280ms ease,
+    border-color 280ms ease,
+    box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-glass-interactive:hover:not(:disabled) {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 253, 0.88) 0%,
+    rgba(248, 242, 232, 0.68) 100%
+  );
+  border-color: rgba(116, 72, 42, 0.75);
+  backdrop-filter: blur(20px) saturate(165%);
+  -webkit-backdrop-filter: blur(20px) saturate(165%);
+  transform: translateY(-1.5px);
+  box-shadow:
+    0 14px 30px -8px rgba(23, 20, 17, 0.2),
+    inset 0 1px 0 0 rgba(255, 255, 255, 1);
+}
+
+.btn-glass-interactive:active:not(:disabled) {
+  transform: translateY(0) scale(0.985);
+}
+
+/* Primary Deep Charcoal + Specular Rim Button */
+.btn-editorial-primary {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: #171614;
+  color: #FAF8F4;
+  border: 1px solid #171614;
+  box-shadow:
+    0 10px 24px -8px rgba(23, 22, 20, 0.26),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.18);
+  transition:
+    transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 260ms ease,
+    border-color 260ms ease,
+    box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-editorial-primary:hover:not(:disabled) {
+  background-color: #74482A;
+  border-color: #74482A;
+  transform: translateY(-1.5px);
+  box-shadow:
+    0 14px 28px -8px rgba(116, 72, 42, 0.34),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-editorial-primary:active:not(:disabled) {
+  transform: translateY(0) scale(0.985);
+}
+
+.btn-editorial-arrow {
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .btn-editorial-arrow,
+.btn-editorial-primary:hover .btn-editorial-arrow,
+.btn-glass-interactive:hover .btn-editorial-arrow {
+  transform: translate(4px, -4px);
+}
+
+/* =========================================================================
+   3D HYBRID ID CARD FLIP & REFRACTION UTILITIES (Sections 3 & 7)
+   ========================================================================= */
+
+.perspective-stage {
+  perspective: 1400px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Subtle Curved-Glass Refraction Band on Selected Images (Section 7) */
+.liquid-refraction-lens {
+  backdrop-filter: blur(3px) saturate(125%) contrast(104%);
+  -webkit-backdrop-filter: blur(3px) saturate(125%) contrast(104%);
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.26) 0%,
+    rgba(255, 250, 240, 0.06) 48%,
+    rgba(255, 255, 255, 0.22) 100%
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+  transition:
+    opacity 380ms ease,
+    transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
+    backdrop-filter 380ms ease;
+}
+
+.group:hover .liquid-refraction-lens {
+  backdrop-filter: url(#editorial-liquid-refraction) blur(4px) saturate(135%);
+  -webkit-backdrop-filter: blur(4px) saturate(135%);
+}
+
+/* Project Image Scale 1 -> 1.02 (Section 6) */
+.project-image-zoom {
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .project-image-zoom {
+  transform: scale(1.02);
+}
+
+.project-title-lift {
+  transition:
+    transform 340ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 260ms ease;
+}
+
+.group:hover .project-title-lift {
+  transform: translateY(-2px);
+  color: #74482A;
+}
+
+/* Backwards-compatible aliases */
+.liquid-glass,
+.liquid-glass-card,
+.paper-sheet {
+  background-color: #FFFDF9;
+  border: 1px solid #DDD3C2;
+}
+
+.liquid-glass-pill {
+  background-color: #F6F1E7;
+  border: 1px solid #D8CEBE;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* =========================================================================
+   EDITORIAL ANIMATION UTILITIES & MICRO-INTERACTIONS
+   ========================================================================= */
+
+/* Highlight Pen Animation */
+.highlight-pen {
+  background-image: linear-gradient(120deg, rgba(224, 183, 143, 0.45) 0%, rgba(200, 150, 105, 0.5) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 35%;
+  background-position: 0 88%;
+  transition: background-size 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .highlight-pen,
+.highlight-pen:hover {
+  background-size: 100% 88%;
+}
+
+/* Animated Underline Draw */
+.underline-draw {
+  position: relative;
+}
+
+.underline-draw::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: #74482A;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .underline-draw::after,
+.underline-draw:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Paper Sheet Pull-Up Reveal */
+@keyframes paperPullUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.paper-reveal-animate {
+  animation: paperPullUp 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Living Headline Line Stagger */
+@keyframes headlineLineReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.headline-reveal-1 {
+  animation: headlineLineReveal 650ms cubic-bezier(0.16, 1, 0.3, 1) 100ms forwards;
+}
+.headline-reveal-2 {
+  animation: headlineLineReveal 650ms cubic-bezier(0.16, 1, 0.3, 1) 220ms forwards;
+}
+.headline-reveal-3 {
+  animation: headlineLineReveal 650ms cubic-bezier(0.16, 1, 0.3, 1) 340ms forwards;
+}
+.headline-reveal-4 {
+  animation: headlineLineReveal 650ms cubic-bezier(0.16, 1, 0.3, 1) 460ms forwards;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}
+
+/* =========================================================================
+   REDUCED MOTION SUPPORT
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .btn-editorial-primary:hover,
+  .btn-glass-interactive:hover,
+  .group:hover .project-image-zoom,
+  .group:hover .project-title-lift,
+  .group:hover .acrylic-glass-caption {
+    transform: none !important;
+  }
+}
